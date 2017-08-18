@@ -4,7 +4,8 @@
   "description": "An implementation of the Knuth-Morris-Pratt string searching algorithm.",
   "main": "index.js",
   "scripts": {
-    "test": "jshint index.js"
+    "test": "jshint index.js",
+	"autotest": "node ./node_modules/supervisor -q -n exit -x ./node_modules/mocha/bin/mocha -- -b"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,11 @@
   },
   "homepage": "https://github.com/nodash/knuth-morris-pratt",
   "devDependencies": {
-    "jshint": "^2.8.0"
+    "jshint": "^2.8.0",
+    "should": "^11.2.1"
+  },
+  "dependencies": {
+    "mocha": "^3.5.0",
+    "supervisor": "^0.12.0"
   }
 }
