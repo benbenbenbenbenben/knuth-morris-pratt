@@ -33,9 +33,13 @@ module.exports = {
 		}
 	  }
 	  
+	  var exec = (f, s, m, i) => {
+		return f(...s.slice(m + i, m + i + f.length))
+	  }
+	  
 	  // scan the string. This takes `O(string.length)` steps.
 	  while (m + i < string.length) {
-		if (word[i] == string[m + i] || (typeof(word[i]) === 'function' && word[i](string[m + i]))) {
+		if (word[i] == string[m + i] || (typeof(word[i]) === 'function' && exec(word[i], string, m, i))) {
 		  if (i == word.length - 1) {
 			return m;
 		  }
